@@ -7,6 +7,7 @@
 //
 
 #import "UserDefaults.h"
+#import "Hotel.h"
 
 @implementation UserDefaults
 static NSArray *hotels;
@@ -23,7 +24,7 @@ static NSArray *hotels;
         // create Hotel objects from hotel dictionaries
         NSMutableArray *mutableHotels = [NSMutableArray new];
         for (NSDictionary *hotelDictionary in hotelDictionaries) {
-            
+            [mutableHotels addObject:[[Hotel alloc] initWithDictionary:hotelDictionary]];
         }
         hotels = [mutableHotels copy];
     }

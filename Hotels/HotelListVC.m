@@ -12,15 +12,43 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
+@property (strong, nonatomic) NSMutableArray *hotels;
+
 @end
 
 @implementation HotelListVC
 
-- (void)viewDidLoad
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidLoad];
+    [super viewWillAppear:animated];
     
-    [UserDefaults hotels];
+    [self.tableView reloadData];
+}
+
+- (NSMutableArray *)hotels
+{
+    if (! _hotels) {
+        _hotels = [[UserDefaults hotels] mutableCopy];
+    }
+    
+    return _hotels;
+}
+
+#pragma mark- UITableView datasource/delegate
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.hotels.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return [tableView dequeueReusableCellWithIdentifier:@"hotelCell"];
 }
 
 @end

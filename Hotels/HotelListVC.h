@@ -8,6 +8,6 @@
 
 #import "CustomVC.h"
 
-@interface HotelListVC : CustomVC
+@interface HotelListVC : CustomVC <UITableViewDataSource, UITableViewDelegate>
 
 @end
