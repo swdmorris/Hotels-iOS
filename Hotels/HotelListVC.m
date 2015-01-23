@@ -8,6 +8,12 @@
 
 #import "HotelListVC.h"
 
+@interface HotelListVC ()
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@end
+
 @implementation HotelListVC
 
 @end

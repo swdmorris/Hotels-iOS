@@ -7,6 +7,13 @@
 //
 
 #import "MapVC.h"
+#import <MapKit/MapKit.h>
+
+@interface MapVC ()
+
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
+
+@end
 
 @implementation MapVC
 
