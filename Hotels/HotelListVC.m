@@ -16,4 +16,11 @@
 
 @implementation HotelListVC
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    [UserDefaults hotels];
+}
+
 @end
