@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  CustomVC.h
 //  Hotels
 //
 //  Created by Spencer Morris on 1/23/15.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface CustomVC : UIViewController
 
 @end
-
