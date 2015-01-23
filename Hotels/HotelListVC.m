@@ -7,6 +7,8 @@
 //
 
 #import "HotelListVC.h"
+#import "HotelCell.h"
+#import "Hotel.h"
 
 @interface HotelListVC ()
 
@@ -48,7 +50,12 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [tableView dequeueReusableCellWithIdentifier:@"hotelCell"];
+    HotelCell *cell = [tableView dequeueReusableCellWithIdentifier:@"hotelCell"];
+    
+    Hotel *hotel = [self.hotels objectAtIndex:indexPath.row];
+    [cell setHotelName:hotel.name andThumbnailUrl:hotel.thumbnailURL];
+    
+    return cell;
 }
 
 @end

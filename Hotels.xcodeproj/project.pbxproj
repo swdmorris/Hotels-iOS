@@ -19,6 +19,9 @@
 		244A56D11A72DF1F002965DD /* hotels.json in Resources */ = {isa = PBXBuildFile; fileRef = 244A56D01A72DF1F002965DD /* hotels.json */; };
 		244A56D41A72DFCA002965DD /* UserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A56D31A72DFCA002965DD /* UserDefaults.m */; };
 		244A56D71A72E142002965DD /* Hotel.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A56D61A72E142002965DD /* Hotel.m */; };
+		244A56DA1A72E462002965DD /* HotelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A56D91A72E462002965DD /* HotelCell.m */; };
+		244A56DD1A72E5D4002965DD /* bkg_hotel.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 244A56DC1A72E5D4002965DD /* bkg_hotel.jpg */; };
+		244A56DF1A72E722002965DD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 244A56DE1A72E722002965DD /* MapKit.framework */; };
 		FE0940815CFBD8D64F1C54EF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 36B401E7F24D82FFC764512A /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +58,10 @@
 		244A56D31A72DFCA002965DD /* UserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDefaults.m; sourceTree = "<group>"; };
 		244A56D51A72E142002965DD /* Hotel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hotel.h; sourceTree = "<group>"; };
 		244A56D61A72E142002965DD /* Hotel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hotel.m; sourceTree = "<group>"; };
+		244A56D81A72E462002965DD /* HotelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotelCell.h; sourceTree = "<group>"; };
+		244A56D91A72E462002965DD /* HotelCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotelCell.m; sourceTree = "<group>"; };
+		244A56DC1A72E5D4002965DD /* bkg_hotel.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bkg_hotel.jpg; sourceTree = "<group>"; };
+		244A56DE1A72E722002965DD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		33847AA95878BF7F09AC2EA7 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		36B401E7F24D82FFC764512A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BCD623958D525C9AB955E26 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -65,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				244A56DF1A72E722002965DD /* MapKit.framework in Frameworks */,
 				FE0940815CFBD8D64F1C54EF /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -83,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				244A56981A72DB0B002965DD /* Hotels */,
+				244A56DB1A72E5C3002965DD /* Images */,
 				244A56B21A72DB0B002965DD /* HotelsTests */,
 				244A56971A72DB0B002965DD /* Products */,
 				AE91349D1C1479C7CBB91695 /* Pods */,
@@ -160,6 +169,8 @@
 		244A56C01A72DC9F002965DD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				244A56D81A72E462002965DD /* HotelCell.h */,
+				244A56D91A72E462002965DD /* HotelCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -189,6 +200,14 @@
 			name = Categories;
 			sourceTree = "<group>";
 		};
+		244A56DB1A72E5C3002965DD /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				244A56DC1A72E5D4002965DD /* bkg_hotel.jpg */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		AE91349D1C1479C7CBB91695 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -201,6 +220,7 @@
 		BCF89B005D7838251219D8D6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				244A56DE1A72E722002965DD /* MapKit.framework */,
 				36B401E7F24D82FFC764512A /* libPods.a */,
 			);
 			name = Frameworks;
@@ -291,6 +311,7 @@
 				244A56A51A72DB0B002965DD /* Main.storyboard in Resources */,
 				244A56AA1A72DB0B002965DD /* LaunchScreen.xib in Resources */,
 				244A56D11A72DF1F002965DD /* hotels.json in Resources */,
+				244A56DD1A72E5D4002965DD /* bkg_hotel.jpg in Resources */,
 				244A56A71A72DB0B002965DD /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -344,6 +365,7 @@
 			files = (
 				244A56C61A72DCDE002965DD /* CustomVC.m in Sources */,
 				244A56D71A72E142002965DD /* Hotel.m in Sources */,
+				244A56DA1A72E462002965DD /* HotelCell.m in Sources */,
 				244A56CC1A72DD18002965DD /* HotelListVC.m in Sources */,
 				244A569F1A72DB0B002965DD /* AppDelegate.m in Sources */,
 				244A569C1A72DB0B002965DD /* main.m in Sources */,
