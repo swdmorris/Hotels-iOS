@@ -7,9 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
 
 @interface UserDefaults : NSObject
 
+#pragma mark- Hotels
 + (NSArray *)hotels;
+
+#pragma mark- Location
++ (void)setLastKnownLocation:(CLLocation *)location;
++ (CLLocation *)lastKnownLocation;
 
 @end

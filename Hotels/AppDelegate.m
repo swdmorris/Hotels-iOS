@@ -7,8 +7,12 @@
 //
 
 #import "AppDelegate.h"
+#import <CoreLocation/CoreLocation.h>
+#import "UserDefaults.h"
 
-@interface AppDelegate ()
+@interface AppDelegate () <CLLocationManagerDelegate>
+
+@property (strong, nonatomic) CLLocationManager *locationManager;
 
 @end
 
@@ -17,6 +21,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [self setupLocationServices];
     
     return YES;
 }
@@ -41,6 +46,27 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+#pragma mark- Custom methods
+
+- (void)setupLocationServices
+{
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    self.locationManager.distanceFilter = 1000; // 1000 meters before movement recorded
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0) {
+        [self.locationManager requestWhenInUseAuthorization]; // iOS 8 only
+    }
+    [self.locationManager startUpdatingLocation];
+}
+
+#pragma mark- CLLocationManager delegate
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+{
+    [UserDefaults setLastKnownLocation:[locations lastObject]];
 }
 
 @end
