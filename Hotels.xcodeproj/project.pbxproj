@@ -18,6 +18,7 @@
 		244A56CF1A72DD24002965DD /* MapVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A56CE1A72DD24002965DD /* MapVC.m */; };
 		244A56D11A72DF1F002965DD /* hotels.json in Resources */ = {isa = PBXBuildFile; fileRef = 244A56D01A72DF1F002965DD /* hotels.json */; };
 		244A56D41A72DFCA002965DD /* UserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A56D31A72DFCA002965DD /* UserDefaults.m */; };
+		244A56D71A72E142002965DD /* Hotel.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A56D61A72E142002965DD /* Hotel.m */; };
 		FE0940815CFBD8D64F1C54EF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 36B401E7F24D82FFC764512A /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,8 @@
 		244A56D01A72DF1F002965DD /* hotels.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hotels.json; sourceTree = "<group>"; };
 		244A56D21A72DFCA002965DD /* UserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDefaults.h; sourceTree = "<group>"; };
 		244A56D31A72DFCA002965DD /* UserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDefaults.m; sourceTree = "<group>"; };
+		244A56D51A72E142002965DD /* Hotel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hotel.h; sourceTree = "<group>"; };
+		244A56D61A72E142002965DD /* Hotel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hotel.m; sourceTree = "<group>"; };
 		33847AA95878BF7F09AC2EA7 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		36B401E7F24D82FFC764512A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BCD623958D525C9AB955E26 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -164,6 +167,8 @@
 		244A56C11A72DCA3002965DD /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				244A56D51A72E142002965DD /* Hotel.h */,
+				244A56D61A72E142002965DD /* Hotel.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -338,6 +343,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				244A56C61A72DCDE002965DD /* CustomVC.m in Sources */,
+				244A56D71A72E142002965DD /* Hotel.m in Sources */,
 				244A56CC1A72DD18002965DD /* HotelListVC.m in Sources */,
 				244A569F1A72DB0B002965DD /* AppDelegate.m in Sources */,
 				244A569C1A72DB0B002965DD /* main.m in Sources */,
