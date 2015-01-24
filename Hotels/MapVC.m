@@ -9,6 +9,7 @@
 #import "MapVC.h"
 #import "Hotel.h"
 #import "HotelAnnotationView.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface MapVC ()
 
@@ -35,9 +36,8 @@
     
     for (Hotel *hotel in self.hotels) {
         HotelAnnotationView *annotationView = [[HotelAnnotationView alloc] init];
+        annotationView.tag = [self.hotels indexOfObject:hotel]; // save index for accessing hotel
         [annotationView setCoordinate:CLLocationCoordinate2DMake(hotel.latitude.floatValue, hotel.longitude.floatValue)];
-        [annotationView setCanShowCallout:YES];
-        
         [self.mapView addAnnotation:annotationView];
     }
 }
@@ -66,14 +66,34 @@
 
 #pragma mark- MKMapView delegate
 
-- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 {
-    NSLog(@"Select");
+    if ([annotation isKindOfClass:[HotelAnnotationView class]]) {
+        HotelAnnotationView *annotationView = [[HotelAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"hotelAnnotation"];
+        [annotationView setImage:[UIImage imageNamed:@"icon_pin"]];
+        
+        // setup hotel image
+        Hotel *hotel = [self.hotels objectAtIndex:annotationView.tag];
+        UIImageView *hotelImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
+        [hotelImageView setContentMode:UIViewContentModeScaleAspectFill];
+        [hotelImageView setClipsToBounds:YES];
+        [hotelImageView sd_setImageWithURL:hotel.thumbnailURL placeholderImage:[UIImage imageNamed:@"bkg_hotel.jpg"]];
+        [annotationView setLeftCalloutAccessoryView:hotelImageView];
+        
+        // setup hotel name label
+        UILabel *hotelNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 150.0, 40.0)];
+        hotelNameLabel.text = hotel.name;
+        annotationView.rightCalloutAccessoryView = hotelNameLabel;
+        
+        return annotationView;
+    } else {
+        return [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"userLocation"];
+    }
 }
 
-- (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view
+- (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
 {
-    NSLog(@"Deselect");
+    NSLog(@"Map region changed");
 }
 
 #pragma mark- End of lifecycle methods

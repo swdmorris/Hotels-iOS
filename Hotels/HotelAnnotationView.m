@@ -16,7 +16,7 @@
 
 @implementation HotelAnnotationView
 
-@synthesize coordinate = _coordinate;
+@synthesize coordinate = _coordinate, title = _title;
 
 - (CLLocationCoordinate2D)coordinate
 {
@@ -26,6 +26,37 @@
 - (void)setCoordinate:(CLLocationCoordinate2D)newCoordinate
 {
     _coordinate = newCoordinate;
+}
+
+- (void)setTitle:(NSString *)title
+{
+    _title = title;
+}
+
+- (NSString *)title
+{
+    return _title;
+}
+
+- (BOOL)canShowCallout
+{
+    return YES;
+}
+
+- (BOOL)isUserInteractionEnabled
+{
+    return YES;
+}
+
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated
+{
+    [super setSelected:selected animated:animated];
+    
+    if (selected) {
+        // TODO: show callout
+    } else {
+        // TOOD: hide callout
+    }
 }
 
 @end

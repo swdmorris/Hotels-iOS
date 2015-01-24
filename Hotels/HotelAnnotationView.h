@@ -12,5 +12,7 @@
 
 - (CLLocationCoordinate2D)coordinate;
 - (void)setCoordinate:(CLLocationCoordinate2D)newCoordinate;
+- (NSString *)title;
+- (void)setTitle:(NSString *)title;
 
 @end
