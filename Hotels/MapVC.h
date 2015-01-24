@@ -7,7 +7,8 @@
 //
 
 #import "CustomVC.h"
+#import <MapKit/MapKit.h>
 
-@interface MapVC : CustomVC
+@interface MapVC : CustomVC <MKMapViewDelegate>
 
 @end
