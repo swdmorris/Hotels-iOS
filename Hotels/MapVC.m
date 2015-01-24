@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
 @property (strong, nonatomic) NSMutableArray *hotelGroups;
+@property MKCoordinateSpan lastMapCoordinateSpan;
 
 @end
 
@@ -66,9 +67,8 @@
         
         if (hotels.count > 1) {
             HotelGroupAnnotationView *annotationView = [[HotelGroupAnnotationView alloc] init];
-            Hotel *hotel = [hotels firstObject];
+            Hotel *hotel = [hotels firstObject]; // use first hotel for location
             annotationView.tag = [self.hotelGroups indexOfObject:hotels]; // save index for accessing hotel
-#warning TODO: make location center of all
             [annotationView setCoordinate:CLLocationCoordinate2DMake(hotel.latitude.floatValue, hotel.longitude.floatValue)];
             [self.mapView addAnnotation:annotationView];
         } else {
@@ -150,7 +150,12 @@
 - (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
 {
     NSLog(@"Map region changed");
-    [self setupAnnotations];
+    if (ABS(mapView.region.span.latitudeDelta - self.lastMapCoordinateSpan.latitudeDelta) / mapView.region.span.latitudeDelta > 0.01
+        || ABS(mapView.region.span.longitudeDelta - self.lastMapCoordinateSpan.longitudeDelta) / mapView.region.span.longitudeDelta > 0.01) {
+        // only set annotations if zoom level (region span) changes somewhat significantly
+        [self setupAnnotations];
+        self.lastMapCoordinateSpan = mapView.region.span;
+    }
 }
 
 #pragma mark- End of lifecycle methods
