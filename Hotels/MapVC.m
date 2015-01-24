@@ -36,6 +36,8 @@
     for (Hotel *hotel in self.hotels) {
         HotelAnnotationView *annotationView = [[HotelAnnotationView alloc] init];
         [annotationView setCoordinate:CLLocationCoordinate2DMake(hotel.latitude.floatValue, hotel.longitude.floatValue)];
+        [annotationView setCanShowCallout:YES];
+        
         [self.mapView addAnnotation:annotationView];
     }
 }
@@ -57,18 +59,12 @@
     CGFloat centerLat = (maxLat - minLat) / 2.0 + minLat;
     CGFloat centerLng = (maxLng - minLng) / 2.0 + minLng;
     CLLocationCoordinate2D centerCoord = CLLocationCoordinate2DMake(centerLat, centerLng);
-    
-    [self.mapView setRegion:MKCoordinateRegionMakeWithDistance(centerCoord, 1000, 1000) animated:YES];
-    
-    NSLog(@"");
+    CGFloat paddingRatio = 1.5;
+    MKCoordinateSpan coordinateSpan = MKCoordinateSpanMake((maxLat - minLat) * paddingRatio, (maxLng - minLng) * paddingRatio);
+    [self.mapView setRegion:MKCoordinateRegionMake(centerCoord, coordinateSpan) animated:YES];
 }
 
 #pragma mark- MKMapView delegate
-
-/*- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
-{
-    
-}*/
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
 {
