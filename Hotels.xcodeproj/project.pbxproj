@@ -26,6 +26,9 @@
 		24D1F6FC1A74262C00385E5D /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D1F6FB1A74262C00385E5D /* Utils.m */; };
 		24D1F7001A742D1B00385E5D /* icon_pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 24D1F6FE1A742D1B00385E5D /* icon_pin.png */; };
 		24D1F7011A742D1B00385E5D /* icon_pin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 24D1F6FF1A742D1B00385E5D /* icon_pin@2x.png */; };
+		24D1F7041A74387300385E5D /* HotelGroupAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D1F7031A74387300385E5D /* HotelGroupAnnotationView.m */; };
+		24D1F7071A7440EF00385E5D /* icon_group_pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 24D1F7051A7440EF00385E5D /* icon_group_pin.png */; };
+		24D1F7081A7440EF00385E5D /* icon_group_pin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 24D1F7061A7440EF00385E5D /* icon_group_pin@2x.png */; };
 		FE0940815CFBD8D64F1C54EF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 36B401E7F24D82FFC764512A /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +75,10 @@
 		24D1F6FB1A74262C00385E5D /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		24D1F6FE1A742D1B00385E5D /* icon_pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_pin.png; sourceTree = "<group>"; };
 		24D1F6FF1A742D1B00385E5D /* icon_pin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_pin@2x.png"; sourceTree = "<group>"; };
+		24D1F7021A74387300385E5D /* HotelGroupAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotelGroupAnnotationView.h; sourceTree = "<group>"; };
+		24D1F7031A74387300385E5D /* HotelGroupAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotelGroupAnnotationView.m; sourceTree = "<group>"; };
+		24D1F7051A7440EF00385E5D /* icon_group_pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_group_pin.png; sourceTree = "<group>"; };
+		24D1F7061A7440EF00385E5D /* icon_group_pin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_group_pin@2x.png"; sourceTree = "<group>"; };
 		33847AA95878BF7F09AC2EA7 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		36B401E7F24D82FFC764512A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BCD623958D525C9AB955E26 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -183,6 +190,8 @@
 				244A56D91A72E462002965DD /* HotelCell.m */,
 				24D1F6F71A74208600385E5D /* HotelAnnotationView.h */,
 				24D1F6F81A74208600385E5D /* HotelAnnotationView.m */,
+				24D1F7021A74387300385E5D /* HotelGroupAnnotationView.h */,
+				24D1F7031A74387300385E5D /* HotelGroupAnnotationView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -220,6 +229,8 @@
 				244A56DC1A72E5D4002965DD /* bkg_hotel.jpg */,
 				24D1F6FE1A742D1B00385E5D /* icon_pin.png */,
 				24D1F6FF1A742D1B00385E5D /* icon_pin@2x.png */,
+				24D1F7051A7440EF00385E5D /* icon_group_pin.png */,
+				24D1F7061A7440EF00385E5D /* icon_group_pin@2x.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -325,7 +336,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24D1F7071A7440EF00385E5D /* icon_group_pin.png in Resources */,
 				244A56A51A72DB0B002965DD /* Main.storyboard in Resources */,
+				24D1F7081A7440EF00385E5D /* icon_group_pin@2x.png in Resources */,
 				244A56AA1A72DB0B002965DD /* LaunchScreen.xib in Resources */,
 				24D1F7011A742D1B00385E5D /* icon_pin@2x.png in Resources */,
 				244A56D11A72DF1F002965DD /* hotels.json in Resources */,
@@ -386,6 +399,7 @@
 				244A56D71A72E142002965DD /* Hotel.m in Sources */,
 				244A56DA1A72E462002965DD /* HotelCell.m in Sources */,
 				24D1F6FC1A74262C00385E5D /* Utils.m in Sources */,
+				24D1F7041A74387300385E5D /* HotelGroupAnnotationView.m in Sources */,
 				244A56CC1A72DD18002965DD /* HotelListVC.m in Sources */,
 				24D1F6F91A74208600385E5D /* HotelAnnotationView.m in Sources */,
 				244A569F1A72DB0B002965DD /* AppDelegate.m in Sources */,
