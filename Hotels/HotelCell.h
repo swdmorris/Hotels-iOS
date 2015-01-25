@@ -10,6 +10,6 @@
 
 @interface HotelCell : UITableViewCell
 
-- (void)setHotelName:(NSString *)hotelName andThumbnailUrl:(NSURL *)thumbnailURL;
+- (void)setHotelName:(NSString *)hotelName price:(NSNumber *)price starRating:(NSNumber *)starRating distance:(NSNumber *)distance andThumbnailUrl:(NSURL *)thumbnailURL;
 
 @end

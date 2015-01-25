@@ -58,7 +58,7 @@
     HotelCell *cell = [tableView dequeueReusableCellWithIdentifier:@"hotelCell"];
     
     Hotel *hotel = [self.hotels objectAtIndex:indexPath.row];
-    [cell setHotelName:hotel.name andThumbnailUrl:hotel.thumbnailURL];
+    [cell setHotelName:hotel.name price:hotel.totalRate starRating:hotel.starRating distance:hotel.distance andThumbnailUrl:hotel.thumbnailURL];
     
     return cell;
 }
@@ -84,7 +84,7 @@
             if ([hotel1.starRating isEqualToNumber:hotel2.starRating]) {
                 return [hotel1.name compare:hotel2.name];
             } else {
-                return [hotel1.starRating compare:hotel2.starRating];
+                return [hotel2.starRating compare:hotel1.starRating];
             }
         }];
         
