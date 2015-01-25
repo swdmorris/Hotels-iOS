@@ -7,6 +7,7 @@
 //
 
 #import "Hotel.h"
+#import "Utils.h"
 
 @interface Hotel ()
 
@@ -41,24 +42,17 @@
     return [self.data objectForKey:@"street_address"];
 }
 
-- (NSNumber *)nightlyRate
-{
-    return [self.data objectForKey:@"nightly_rate"];
-}
-
-- (NSNumber *)promotedNightlyRate
-{
-    return [self.data objectForKey:@"promoted_nightly_rate"];
-}
-
 - (NSNumber *)totalRate
 {
-    return [self.data objectForKey:@"total_rate"];
-}
-
-- (NSNumber *)promotedTotalRate
-{
-    return [self.data objectForKey:@"promoted_total_rate"];
+    NSString *totalRateString = [self.data objectForKey:@"total_rate"];
+    
+    if ([totalRateString isKindOfClass:[NSString class]]) {
+        return [Utils numberFromString:totalRateString];
+    } else if ([totalRateString isKindOfClass:[NSNumber class]]) {
+        return (NSNumber *) totalRateString;
+    } else {
+        return nil;
+    }
 }
 
 - (NSNumber *)latitude
@@ -73,12 +67,41 @@
 
 - (NSNumber *)reviewScore
 {
-    return [self.data objectForKey:@"review_score"];
+    NSString *reviewScoreString = [self.data objectForKey:@"review_score"];
+    
+    if ([reviewScoreString isKindOfClass:[NSString class]]) {
+        return [Utils numberFromString:reviewScoreString];
+    } else if ([reviewScoreString isKindOfClass:[NSNumber class]]) {
+        return (NSNumber *) reviewScoreString;
+    } else {
+        return nil;
+    }
 }
 
 - (NSNumber *)starRating
 {
-    return [self.data objectForKey:@"star_rating"];
+    NSString *starRatingString = [self.data objectForKey:@"star_rating"];
+    
+    if ([starRatingString isKindOfClass:[NSString class]]) {
+        return [Utils numberFromString:starRatingString];
+    } else if ([starRatingString isKindOfClass:[NSNumber class]]) {
+        return (NSNumber *) starRatingString;
+    } else {
+        return nil;
+    }
+}
+
+- (NSNumber *)distance
+{
+    NSString *distanceString = [self.data objectForKey:@"distance"];
+    
+    if ([distanceString isKindOfClass:[NSString class]]) {
+        return [Utils numberFromString:distanceString];
+    } else if ([distanceString isKindOfClass:[NSNumber class]]) {
+        return (NSNumber *) distanceString;
+    } else {
+        return nil;
+    }
 }
 
 - (NSURL *)thumbnailURL

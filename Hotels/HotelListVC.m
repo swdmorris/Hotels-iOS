@@ -10,9 +10,14 @@
 #import "HotelCell.h"
 #import "Hotel.h"
 
+#define kIndexPrice 0
+#define kIndexLocation 1
+#define kIndexRating 2
+
 @interface HotelListVC ()
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *sortSegmentedControl;
 
 @property (strong, nonatomic) NSMutableArray *hotels;
 
@@ -56,6 +61,36 @@
     [cell setHotelName:hotel.name andThumbnailUrl:hotel.thumbnailURL];
     
     return cell;
+}
+#pragma mark- Actions
+
+- (IBAction)sortCategoryChanged:(UISegmentedControl *)segmentedControl
+{
+    if (segmentedControl.selectedSegmentIndex == kIndexPrice) {
+        
+        [self.hotels sortUsingComparator:^NSComparisonResult(Hotel *hotel1, Hotel *hotel2) {
+            return [hotel1.totalRate compare:hotel2.totalRate];
+        }];
+        
+    } else if  (segmentedControl.selectedSegmentIndex == kIndexLocation) {
+        
+        [self.hotels sortUsingComparator:^NSComparisonResult(Hotel *hotel1, Hotel *hotel2) {
+            return [hotel1.distance compare:hotel2.distance];
+        }];
+        
+    } else if (segmentedControl.selectedSegmentIndex == kIndexRating) {
+        
+        [self.hotels sortUsingComparator:^NSComparisonResult(Hotel *hotel1, Hotel *hotel2) {
+            if ([hotel1.starRating isEqualToNumber:hotel2.starRating]) {
+                return [hotel1.name compare:hotel2.name];
+            } else {
+                return [hotel1.starRating compare:hotel2.starRating];
+            }
+        }];
+        
+    }
+    
+    [self.tableView reloadData];
 }
 
 @end

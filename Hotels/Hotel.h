@@ -14,14 +14,12 @@
 
 - (NSString *)name;
 - (NSString *)streetAddress;
-- (NSNumber *)nightlyRate;
-- (NSNumber *)promotedNightlyRate;
 - (NSNumber *)totalRate;
-- (NSNumber *)promotedTotalRate;
 - (NSNumber *)latitude;
 - (NSNumber *)longitude;
 - (NSNumber *)reviewScore;
 - (NSNumber *)starRating;
+- (NSNumber *)distance;
 - (NSURL *)thumbnailURL;
 
 @end

@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="cQX-mK-aUm">
-                                <rect key="frame" x="0.0" y="20" width="320" height="499"/>
+                                <rect key="frame" x="0.0" y="70" width="320" height="449"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="hotelCell" id="8Z6-jf-n8A" customClass="HotelCell">
@@ -63,18 +63,36 @@
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="Yeb-DI-fxa"/>
                                 </connections>
                             </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="5yY-Ls-GJR">
+                                <rect key="frame" x="16" y="28" width="288" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="r25-dv-6zi"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Price"/>
+                                    <segment title="Location"/>
+                                    <segment title="Rating" width="95.333333333333329"/>
+                                </segments>
+                                <connections>
+                                    <action selector="sortCategoryChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="lzW-RK-uo8"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="cQX-mK-aUm" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" constant="20" id="Mqd-VV-nV8"/>
+                            <constraint firstItem="5yY-Ls-GJR" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="Jbs-By-LA6"/>
                             <constraint firstAttribute="trailingMargin" secondItem="cQX-mK-aUm" secondAttribute="trailing" constant="-16" id="QRe-zu-Iz4"/>
+                            <constraint firstItem="5yY-Ls-GJR" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="U64-Qd-S6M"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="cQX-mK-aUm" secondAttribute="bottom" id="fQp-1R-JXh"/>
+                            <constraint firstItem="5yY-Ls-GJR" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="sdo-rg-CXv"/>
                             <constraint firstItem="cQX-mK-aUm" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="va0-Ov-al3"/>
+                            <constraint firstItem="cQX-mK-aUm" firstAttribute="top" secondItem="5yY-Ls-GJR" secondAttribute="bottom" constant="14" id="xQE-O9-5iw"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="List" id="Rxq-pe-ar3"/>
                     <connections>
+                        <outlet property="sortSegmentedControl" destination="5yY-Ls-GJR" id="lQL-j1-G87"/>
                         <outlet property="tableView" destination="cQX-mK-aUm" id="Y6D-kG-Zdm"/>
                     </connections>
                 </viewController>

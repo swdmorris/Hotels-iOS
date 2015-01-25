@@ -10,4 +10,12 @@
 
 @implementation Utils
 
++ (NSNumber *)numberFromString:(NSString *)string
+{
+    NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
+    f.numberStyle = NSNumberFormatterDecimalStyle;
+    
+    return [f numberFromString:string];
+}
+
 @end

@@ -10,4 +10,6 @@
 
 @interface Utils : NSObject
 
++ (NSNumber *)numberFromString:(NSString *)string;
+
 @end
