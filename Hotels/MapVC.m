@@ -67,15 +67,26 @@
         
         if (hotels.count > 1) {
             HotelGroupAnnotationView *annotationView = [[HotelGroupAnnotationView alloc] init];
-            Hotel *hotel = [hotels firstObject]; // use first hotel for location
+
+            // find average position of hotels
+            CGFloat totalLatitude = 0.0, totalLongitude = 0.0;
+            for (Hotel *hotel in hotels) {
+                totalLatitude += hotel.latitude.floatValue;
+                totalLongitude += hotel.longitude.floatValue;
+            }
+            CGFloat avgLatitude = totalLatitude / hotels.count;
+            CGFloat avgLongitude = totalLongitude / hotels.count;
+            
             annotationView.tag = [self.hotelGroups indexOfObject:hotels]; // save index for accessing hotel
-            [annotationView setCoordinate:CLLocationCoordinate2DMake(hotel.latitude.floatValue, hotel.longitude.floatValue)];
+            [annotationView setCoordinate:CLLocationCoordinate2DMake(avgLatitude, avgLongitude)];
+            annotationView.title = [NSString stringWithFormat:@"%i hotels near here", (int) hotels.count];
             [self.mapView addAnnotation:annotationView];
         } else {
             HotelAnnotationView *annotationView = [[HotelAnnotationView alloc] init];
             Hotel *hotel = [hotels firstObject];
             annotationView.tag = [self.hotelGroups indexOfObject:hotels]; // save index for accessing hotel
             [annotationView setCoordinate:CLLocationCoordinate2DMake(hotel.latitude.floatValue, hotel.longitude.floatValue)];
+            annotationView.title = hotel.name;
             [self.mapView addAnnotation:annotationView];
         }
     }
@@ -112,18 +123,13 @@
         [annotationView setImage:[UIImage imageNamed:@"icon_pin"]];
         
         // setup hotel image
-        NSArray *hotels = [self.hotelGroups objectAtIndex:annotationView.tag];
+        NSArray *hotels = [self.hotelGroups objectAtIndex:((UIView *) annotation).tag];
         Hotel *hotel = hotels.firstObject;
-        UIImageView *hotelImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
+        UIImageView *hotelImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 70, 50)];
         [hotelImageView setContentMode:UIViewContentModeScaleAspectFill];
         [hotelImageView setClipsToBounds:YES];
         [hotelImageView sd_setImageWithURL:hotel.thumbnailURL placeholderImage:[UIImage imageNamed:@"bkg_hotel.jpg"]];
         [annotationView setLeftCalloutAccessoryView:hotelImageView];
-        
-        // setup hotel name label
-        UILabel *hotelNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 150.0, 40.0)];
-        hotelNameLabel.text = hotel.name;
-        annotationView.rightCalloutAccessoryView = hotelNameLabel;
         
         return annotationView;
     } else if ([annotation isKindOfClass:[HotelGroupAnnotationView class]]) {
@@ -145,6 +151,16 @@
     } else {
         return [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"userLocation"];
     }
+}
+
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
+{
+    NSLog(@"CALLOUT TAPPED");
+}
+
+- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
+{
+    NSLog(@"SELECT ANNOTATION");
 }
 
 - (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
