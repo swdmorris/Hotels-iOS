@@ -33,12 +33,12 @@
                                                         <constraint firstAttribute="width" constant="100" id="1Gp-iV-WEV"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Grand Astoria" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="219" translatesAutoresizingMaskIntoConstraints="NO" id="15G-mB-nCX">
-                                                    <rect key="frame" x="108" y="10" width="198" height="47"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Grand Astoria Downtown Chicago" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="219" translatesAutoresizingMaskIntoConstraints="NO" id="15G-mB-nCX">
+                                                    <rect key="frame" x="108" y="4" width="198" height="47"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="47" id="tVd-gT-epA"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -82,7 +82,7 @@
                                                 <constraint firstAttribute="bottomMargin" secondItem="5tF-Vr-8Id" secondAttribute="bottom" constant="-9" id="alm-C6-hZe"/>
                                                 <constraint firstItem="7qj-hs-RwK" firstAttribute="leading" secondItem="5tF-Vr-8Id" secondAttribute="trailing" constant="8" id="hHa-KR-TN8"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="McI-YZ-yRl" secondAttribute="bottom" constant="-1" id="nJ3-ua-XHG"/>
-                                                <constraint firstItem="15G-mB-nCX" firstAttribute="top" secondItem="7pe-Ny-DX9" secondAttribute="topMargin" constant="2" id="tYB-Gf-ALW"/>
+                                                <constraint firstItem="15G-mB-nCX" firstAttribute="top" secondItem="7pe-Ny-DX9" secondAttribute="topMargin" constant="-4" id="tYB-Gf-ALW"/>
                                                 <constraint firstItem="McI-YZ-yRl" firstAttribute="leading" secondItem="dP7-VG-MbD" secondAttribute="trailing" constant="8" id="vEY-xb-Vh7"/>
                                                 <constraint firstItem="dP7-VG-MbD" firstAttribute="leading" secondItem="7qj-hs-RwK" secondAttribute="trailing" constant="8" id="vyb-Zr-ybD"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="7qj-hs-RwK" secondAttribute="bottom" constant="-1" id="xnR-Tf-yxO"/>

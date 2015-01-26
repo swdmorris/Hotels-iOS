@@ -25,6 +25,14 @@
 
 @implementation HotelListVC
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    // sort hotels based on initial selected segment
+    [self sortCategoryChanged:self.sortSegmentedControl];
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
