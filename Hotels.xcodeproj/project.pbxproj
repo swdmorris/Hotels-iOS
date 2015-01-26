@@ -22,6 +22,8 @@
 		244A56DA1A72E462002965DD /* HotelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A56D91A72E462002965DD /* HotelCell.m */; };
 		244A56DD1A72E5D4002965DD /* bkg_hotel.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 244A56DC1A72E5D4002965DD /* bkg_hotel.jpg */; };
 		244A56DF1A72E722002965DD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 244A56DE1A72E722002965DD /* MapKit.framework */; };
+		24C2E6EA1A75D5B800125E07 /* HotelCalloutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24C2E6E91A75D5B800125E07 /* HotelCalloutView.xib */; };
+		24C2E6ED1A75D5C800125E07 /* HotelCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C2E6EC1A75D5C800125E07 /* HotelCalloutView.m */; };
 		24D1F6F91A74208600385E5D /* HotelAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D1F6F81A74208600385E5D /* HotelAnnotationView.m */; };
 		24D1F6FC1A74262C00385E5D /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D1F6FB1A74262C00385E5D /* Utils.m */; };
 		24D1F7001A742D1B00385E5D /* icon_pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 24D1F6FE1A742D1B00385E5D /* icon_pin.png */; };
@@ -69,6 +71,9 @@
 		244A56D91A72E462002965DD /* HotelCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotelCell.m; sourceTree = "<group>"; };
 		244A56DC1A72E5D4002965DD /* bkg_hotel.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bkg_hotel.jpg; sourceTree = "<group>"; };
 		244A56DE1A72E722002965DD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		24C2E6E91A75D5B800125E07 /* HotelCalloutView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotelCalloutView.xib; sourceTree = "<group>"; };
+		24C2E6EB1A75D5C800125E07 /* HotelCalloutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotelCalloutView.h; sourceTree = "<group>"; };
+		24C2E6EC1A75D5C800125E07 /* HotelCalloutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotelCalloutView.m; sourceTree = "<group>"; };
 		24D1F6F71A74208600385E5D /* HotelAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotelAnnotationView.h; sourceTree = "<group>"; };
 		24D1F6F81A74208600385E5D /* HotelAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotelAnnotationView.m; sourceTree = "<group>"; };
 		24D1F6FA1A74262C00385E5D /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
@@ -192,6 +197,9 @@
 				24D1F6F81A74208600385E5D /* HotelAnnotationView.m */,
 				24D1F7021A74387300385E5D /* HotelGroupAnnotationView.h */,
 				24D1F7031A74387300385E5D /* HotelGroupAnnotationView.m */,
+				24C2E6EB1A75D5C800125E07 /* HotelCalloutView.h */,
+				24C2E6EC1A75D5C800125E07 /* HotelCalloutView.m */,
+				24C2E6E91A75D5B800125E07 /* HotelCalloutView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -342,6 +350,7 @@
 				244A56AA1A72DB0B002965DD /* LaunchScreen.xib in Resources */,
 				24D1F7011A742D1B00385E5D /* icon_pin@2x.png in Resources */,
 				244A56D11A72DF1F002965DD /* hotels.json in Resources */,
+				24C2E6EA1A75D5B800125E07 /* HotelCalloutView.xib in Resources */,
 				244A56DD1A72E5D4002965DD /* bkg_hotel.jpg in Resources */,
 				24D1F7001A742D1B00385E5D /* icon_pin.png in Resources */,
 				244A56A71A72DB0B002965DD /* Images.xcassets in Resources */,
@@ -403,6 +412,7 @@
 				244A56CC1A72DD18002965DD /* HotelListVC.m in Sources */,
 				24D1F6F91A74208600385E5D /* HotelAnnotationView.m in Sources */,
 				244A569F1A72DB0B002965DD /* AppDelegate.m in Sources */,
+				24C2E6ED1A75D5C800125E07 /* HotelCalloutView.m in Sources */,
 				244A569C1A72DB0B002965DD /* main.m in Sources */,
 				244A56D41A72DFCA002965DD /* UserDefaults.m in Sources */,
 				244A56CF1A72DD24002965DD /* MapVC.m in Sources */,

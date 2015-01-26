@@ -48,15 +48,4 @@
     return YES;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    [super setSelected:selected animated:animated];
-    
-    if (selected) {
-        // TODO: show callout
-    } else {
-        // TOOD: hide callout
-    }
-}
-
 @end

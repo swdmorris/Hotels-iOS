@@ -10,12 +10,14 @@
 #import "Hotel.h"
 #import "HotelAnnotationView.h"
 #import "HotelGroupAnnotationView.h"
+#import "HotelCalloutView.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
 @interface MapVC ()
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
+@property (strong, nonatomic) HotelCalloutView *calloutView;
 @property (strong, nonatomic) NSMutableArray *hotelGroups;
 @property MKCoordinateSpan lastMapCoordinateSpan;
 
@@ -29,6 +31,16 @@
     
     [self setupAnnotations];
     [self zoomToAnnotations];
+}
+
+- (HotelCalloutView *)calloutView
+{
+    if (! _calloutView) {
+        _calloutView = [[[NSBundle mainBundle] loadNibNamed:@"HotelCalloutView" owner:self options:nil] firstObject];
+        _calloutView.frame = CGRectMake(0.0, - _calloutView.frame.size.height, _calloutView.frame.size.width, _calloutView.frame.size.height);
+    }
+    
+    return _calloutView;
 }
 
 - (void)setupAnnotations
@@ -67,7 +79,7 @@
         
         if (hotels.count > 1) {
             HotelGroupAnnotationView *annotationView = [[HotelGroupAnnotationView alloc] init];
-
+            
             // find average position of hotels
             CGFloat totalLatitude = 0.0, totalLongitude = 0.0;
             for (Hotel *hotel in hotels) {
@@ -86,6 +98,8 @@
             Hotel *hotel = [hotels firstObject];
             annotationView.tag = [self.hotelGroups indexOfObject:hotels]; // save index for accessing hotel
             [annotationView setCoordinate:CLLocationCoordinate2DMake(hotel.latitude.floatValue, hotel.longitude.floatValue)];
+#warning
+            annotationView.canShowCallout = YES;
             annotationView.title = hotel.name;
             [self.mapView addAnnotation:annotationView];
         }
@@ -99,11 +113,11 @@
     CGFloat minLng = CGFLOAT_MAX;
     CGFloat maxLng = - CGFLOAT_MAX;
     
-    for (HotelAnnotationView *annotationView in self.mapView.annotations) {
-        minLat = MIN(minLat, annotationView.coordinate.latitude);
-        maxLat = MAX(maxLat, annotationView.coordinate.latitude);
-        minLng = MIN(minLng, annotationView.coordinate.longitude);
-        maxLng = MAX(maxLng, annotationView.coordinate.longitude);
+    for (Hotel *hotel in [UserDefaults hotels]) {
+        minLat = MIN(minLat, hotel.latitude.floatValue);
+        maxLat = MAX(maxLat, hotel.latitude.floatValue);
+        minLng = MIN(minLng, hotel.longitude.floatValue);
+        maxLng = MAX(maxLng, hotel.longitude.floatValue);
     }
     
     CGFloat centerLat = (maxLat - minLat) / 2.0 + minLat;
@@ -119,20 +133,14 @@
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 {
     if ([annotation isKindOfClass:[HotelAnnotationView class]]) {
+        // view for annotation with ONE hotel
         HotelAnnotationView *annotationView = [[HotelAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"hotelAnnotation"];
+        annotationView.tag = ((UIView *) annotation).tag; // save tag for index of hotel
         [annotationView setImage:[UIImage imageNamed:@"icon_pin"]];
-        
-        // setup hotel image
-        NSArray *hotels = [self.hotelGroups objectAtIndex:((UIView *) annotation).tag];
-        Hotel *hotel = hotels.firstObject;
-        UIImageView *hotelImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 70, 50)];
-        [hotelImageView setContentMode:UIViewContentModeScaleAspectFill];
-        [hotelImageView setClipsToBounds:YES];
-        [hotelImageView sd_setImageWithURL:hotel.thumbnailURL placeholderImage:[UIImage imageNamed:@"bkg_hotel.jpg"]];
-        [annotationView setLeftCalloutAccessoryView:hotelImageView];
         
         return annotationView;
     } else if ([annotation isKindOfClass:[HotelGroupAnnotationView class]]) {
+        // view for annotation with MANY hotels
         HotelGroupAnnotationView *annotationView = [[HotelGroupAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"hotelGroupAnnotation"];
         annotationView.tag = ((UIView *) annotation).tag;
         [annotationView setImage:[UIImage imageNamed:@"icon_group_pin"]];
@@ -153,6 +161,32 @@
     }
 }
 
+- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
+{
+    if ([view isKindOfClass:[HotelAnnotationView class]]) {
+        NSArray *hotels = [self.hotelGroups objectAtIndex:view.tag];
+        Hotel *hotel = hotels.firstObject;
+        // set hotel properties
+        self.calloutView.nameLabel.text = hotel.name;
+        [self.calloutView.thumbnailImageView sd_setImageWithURL:hotel.thumbnailURL placeholderImage:[UIImage imageNamed:@"bkg_hotel.jpg"]];
+        // set position of callout (centered in map)
+        CGFloat originX = - self.calloutView.frame.size.width / 2.0; // center callout
+        // make sure callout is not off left edge of screen
+        originX = MAX(originX, - view.frame.origin.x);
+        // make sure callout is not off right edge of screen
+        originX = MIN(originX, self.mapView.frame.size.width - self.calloutView.frame.size.width - view.frame.origin.x);
+        
+        self.calloutView.frame = CGRectMake(originX, self.calloutView.frame.origin.y, self.calloutView.frame.size.width, self.calloutView.frame.size.height);
+        
+        [view addSubview:self.calloutView];
+    }
+}
+
+- (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view
+{
+    [self.calloutView removeFromSuperview];
+}
+
 - (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
 {
     NSLog(@"Map region changed");
@@ -169,6 +203,7 @@
 - (void)dealloc
 {
     self.mapView.delegate = nil;
+    self.calloutView = nil;
 }
 
 @end
