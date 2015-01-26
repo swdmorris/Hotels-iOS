@@ -99,6 +99,8 @@
     }
     
     [self.tableView reloadData];
+    // scroll to top of table view when changing sort type
+    [self.tableView scrollRectToVisible:CGRectMake(0.0, 0.0, 1.0, 1.0) animated:NO];
 }
 
 @end
