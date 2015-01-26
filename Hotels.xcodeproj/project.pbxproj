@@ -32,6 +32,10 @@
 		24D1F7071A7440EF00385E5D /* icon_group_pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 24D1F7051A7440EF00385E5D /* icon_group_pin.png */; };
 		24D1F7081A7440EF00385E5D /* icon_group_pin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 24D1F7061A7440EF00385E5D /* icon_group_pin@2x.png */; };
 		24D78C871A75DEC80020C437 /* callout_point.png in Resources */ = {isa = PBXBuildFile; fileRef = 24D78C861A75DEC80020C437 /* callout_point.png */; };
+		24D78C901A75E7F30020C437 /* Clipboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 24D78C8C1A75E7F30020C437 /* Clipboard.png */; };
+		24D78C911A75E7F30020C437 /* Clipboard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 24D78C8D1A75E7F30020C437 /* Clipboard@2x.png */; };
+		24D78C921A75E7F30020C437 /* Scanner.png in Resources */ = {isa = PBXBuildFile; fileRef = 24D78C8E1A75E7F30020C437 /* Scanner.png */; };
+		24D78C931A75E7F30020C437 /* Scanner@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 24D78C8F1A75E7F30020C437 /* Scanner@2x.png */; };
 		FE0940815CFBD8D64F1C54EF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 36B401E7F24D82FFC764512A /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -86,6 +90,10 @@
 		24D1F7051A7440EF00385E5D /* icon_group_pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_group_pin.png; sourceTree = "<group>"; };
 		24D1F7061A7440EF00385E5D /* icon_group_pin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_group_pin@2x.png"; sourceTree = "<group>"; };
 		24D78C861A75DEC80020C437 /* callout_point.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = callout_point.png; sourceTree = "<group>"; };
+		24D78C8C1A75E7F30020C437 /* Clipboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Clipboard.png; sourceTree = "<group>"; };
+		24D78C8D1A75E7F30020C437 /* Clipboard@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Clipboard@2x.png"; sourceTree = "<group>"; };
+		24D78C8E1A75E7F30020C437 /* Scanner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Scanner.png; sourceTree = "<group>"; };
+		24D78C8F1A75E7F30020C437 /* Scanner@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Scanner@2x.png"; sourceTree = "<group>"; };
 		33847AA95878BF7F09AC2EA7 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		36B401E7F24D82FFC764512A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BCD623958D525C9AB955E26 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -237,11 +245,15 @@
 			isa = PBXGroup;
 			children = (
 				244A56DC1A72E5D4002965DD /* bkg_hotel.jpg */,
-				24D1F6FE1A742D1B00385E5D /* icon_pin.png */,
-				24D1F6FF1A742D1B00385E5D /* icon_pin@2x.png */,
+				24D78C861A75DEC80020C437 /* callout_point.png */,
+				24D78C8C1A75E7F30020C437 /* Clipboard.png */,
+				24D78C8D1A75E7F30020C437 /* Clipboard@2x.png */,
 				24D1F7051A7440EF00385E5D /* icon_group_pin.png */,
 				24D1F7061A7440EF00385E5D /* icon_group_pin@2x.png */,
-				24D78C861A75DEC80020C437 /* callout_point.png */,
+				24D1F6FE1A742D1B00385E5D /* icon_pin.png */,
+				24D1F6FF1A742D1B00385E5D /* icon_pin@2x.png */,
+				24D78C8E1A75E7F30020C437 /* Scanner.png */,
+				24D78C8F1A75E7F30020C437 /* Scanner@2x.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -351,10 +363,14 @@
 				244A56A51A72DB0B002965DD /* Main.storyboard in Resources */,
 				24D78C871A75DEC80020C437 /* callout_point.png in Resources */,
 				24D1F7081A7440EF00385E5D /* icon_group_pin@2x.png in Resources */,
+				24D78C901A75E7F30020C437 /* Clipboard.png in Resources */,
+				24D78C911A75E7F30020C437 /* Clipboard@2x.png in Resources */,
 				244A56AA1A72DB0B002965DD /* LaunchScreen.xib in Resources */,
 				24D1F7011A742D1B00385E5D /* icon_pin@2x.png in Resources */,
 				244A56D11A72DF1F002965DD /* hotels.json in Resources */,
 				24C2E6EA1A75D5B800125E07 /* HotelCalloutView.xib in Resources */,
+				24D78C931A75E7F30020C437 /* Scanner@2x.png in Resources */,
+				24D78C921A75E7F30020C437 /* Scanner.png in Resources */,
 				244A56DD1A72E5D4002965DD /* bkg_hotel.jpg in Resources */,
 				24D1F7001A742D1B00385E5D /* icon_pin.png in Resources */,
 				244A56A71A72DB0B002965DD /* Images.xcassets in Resources */,

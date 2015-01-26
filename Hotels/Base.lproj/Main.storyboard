@@ -129,7 +129,7 @@
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <tabBarItem key="tabBarItem" title="List" id="Rxq-pe-ar3"/>
+                    <tabBarItem key="tabBarItem" title="List" image="Clipboard.png" id="Rxq-pe-ar3"/>
                     <connections>
                         <outlet property="sortSegmentedControl" destination="5yY-Ls-GJR" id="lQL-j1-G87"/>
                         <outlet property="tableView" destination="cQX-mK-aUm" id="Y6D-kG-Zdm"/>
@@ -167,7 +167,7 @@
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <tabBarItem key="tabBarItem" title="Map" id="RnW-VW-6Sx"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="Scanner.png" id="RnW-VW-6Sx"/>
                     <connections>
                         <outlet property="mapView" destination="wf3-Qk-Jgi" id="xYs-jN-cz2"/>
                     </connections>
@@ -198,6 +198,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Clipboard.png" width="30" height="30"/>
+        <image name="Scanner.png" width="30" height="30"/>
         <image name="bkg_hotel.jpg" width="900" height="600"/>
     </resources>
 </document>
