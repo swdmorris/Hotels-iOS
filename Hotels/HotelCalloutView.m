@@ -16,6 +16,10 @@
     
     self.layer.cornerRadius = 5.0f;
     self.clipsToBounds = YES;
+    self.thumbnailImageView.layer.cornerRadius = 5.0f;
+    self.thumbnailImageView.clipsToBounds = YES;
+    self.nameLabel.layer.cornerRadius = 5.0f;
+    self.nameLabel.clipsToBounds = YES;
 }
 
 @end

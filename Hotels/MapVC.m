@@ -98,7 +98,6 @@
             Hotel *hotel = [hotels firstObject];
             annotationView.tag = [self.hotelGroups indexOfObject:hotels]; // save index for accessing hotel
             [annotationView setCoordinate:CLLocationCoordinate2DMake(hotel.latitude.floatValue, hotel.longitude.floatValue)];
-#warning
             annotationView.canShowCallout = YES;
             annotationView.title = hotel.name;
             [self.mapView addAnnotation:annotationView];
@@ -169,7 +168,7 @@
         // set hotel properties
         self.calloutView.nameLabel.text = hotel.name;
         [self.calloutView.thumbnailImageView sd_setImageWithURL:hotel.thumbnailURL placeholderImage:[UIImage imageNamed:@"bkg_hotel.jpg"]];
-        // set position of callout (centered in map)
+        // set position of callout (centered over annotation)
         CGFloat originX = - self.calloutView.frame.size.width / 2.0; // center callout
         // make sure callout is not off left edge of screen
         originX = MAX(originX, - view.frame.origin.x);
@@ -177,6 +176,15 @@
         originX = MIN(originX, self.mapView.frame.size.width - self.calloutView.frame.size.width - view.frame.origin.x);
         
         self.calloutView.frame = CGRectMake(originX, self.calloutView.frame.origin.y, self.calloutView.frame.size.width, self.calloutView.frame.size.height);
+        
+        // set position of bottom point
+#define kPointHalfWidth 16.0
+        CGFloat pointOriginX = - kPointHalfWidth;
+        // keep point from going off of left edge
+        pointOriginX = MAX(pointOriginX, 0.0);
+        // keep point from going off of right edge
+        pointOriginX = MIN(pointOriginX, self.calloutView.frame.size.width - 2 * kPointHalfWidth);
+        self.calloutView.bottomPointLeftContraint.constant = pointOriginX - self.calloutView.frame.origin.x;
         
         [view addSubview:self.calloutView];
     }
